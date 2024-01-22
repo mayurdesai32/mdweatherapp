@@ -57,7 +57,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
         future: getCurrentWeather(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: const CircularProgressIndicator.adaptive());
+            return const Center(child: CircularProgressIndicator.adaptive());
           }
           if (snapshot.hasError) {
             return Text(snapshot.error.toString());
@@ -90,12 +90,13 @@ class _WeatherScreenState extends State<WeatherScreen> {
                           child: BackdropFilter(
                             filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                             child: Padding(
-                              padding: EdgeInsets.only(top: 20, bottom: 20),
+                              padding:
+                                  const EdgeInsets.only(top: 20, bottom: 20),
                               child: Column(children: [
                                 Text(
                                   '$currentTemp k',
                                   // "200",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 32,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -107,7 +108,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                 ),
                                 Text(
                                   currentsky,
-                                  style: TextStyle(fontSize: 20),
+                                  style: const TextStyle(fontSize: 20),
                                 )
                               ]),
                             ),
@@ -206,10 +207,10 @@ class _WeatherScreenState extends State<WeatherScreen> {
           );
         },
       ),
-      bottomNavigationBar: BottomAppBar(
+      bottomNavigationBar: const BottomAppBar(
         color: Colors.black,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0),
           child: Center(
             child: Text(
               "Made by me @ Mayur Desai",
